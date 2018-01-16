@@ -8,20 +8,20 @@ class Ultrasonic:
 		self.pin_echo.read_digital() # set as input
 
 		self.units = {
-		  'mm' : 58 * 10,
+		  'mm' : 58 / 10,
 		  'cm' : 58,
-		  'm'  : 58 / 100,
+		  'm'  : 58 * 100,
 		  'inch' : 148,
-		  'feet' : 148 / 12,
+		  'feet' : 148 * 12,
 		}
 
-		self.unit = units['cm']
+		self.unit = self.units['cm']
 
 	def set_units(self, unit):
 		if unit in self.units.keys():
 			self.unit = unit
 
-	def get():
+	def get(self):
 		# pulse trig pin for >10uS
 		self.pin_trig.write_digital(True)
 		sleep(1)
